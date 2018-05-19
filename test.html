@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+         Function.prototype.method = function(name,fn){
+             this.prototype[name] = fn;
+             return this;
+         }
+         Number.method('Integer', function(){
+             console.log(this);
+            return Math[this < 0 ? 'ceiling':'floor'](this);
+         });
+         document.writeln((10/3).Integer());
+        </script>
+    </body>
+</html>
