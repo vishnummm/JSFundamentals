@@ -4,15 +4,68 @@
     </head>
     <body>
         <script>
-         Function.prototype.method = function(name,fn){
-             this.prototype[name] = fn;
-             return this;
-         }
-         Number.method('Integer', function(){
-             console.log(this);
-            return Math[this < 0 ? 'ceiling':'floor'](this);
-         });
-         document.writeln((10/3).Integer());
+
+         // Object inheriting from other
+
+        //  Object.prototype.beget = function(o){
+        //      var F = function(){
+
+        //      }
+        //      F.prototype = o;
+        //      return new F();
+        //  }
+        //  var obj1 = {name:"joan",age:10};
+        //  var obj2  = Object.beget(obj1);
+        //  obj2.city = "mysore";
+        //  console.log(obj1);
+        //  console.log(obj1.city);
+        
+        // Extending functions.
+
+        //  Function.prototype.method = function(name,fn){
+        //      this.prototype[name] = fn;
+        //      return this;
+        //  }
+        //  Number.method('Integer', function(){
+        //      console.log(this);
+        //     return Math[this < 0 ? 'ceiling':'floor'](this);
+        //  });
+        //  document.writeln((10/3).Integer());
+
+        // Making properties 
+
+        // var prop = function(){
+        //     var status = 1;
+
+        //     return{
+        //         get_status:function(){
+        //             return status;
+        //         },
+        //         inc_status : function(inc){
+        //             status += typeof(inc) === 'number' ? inc : 1;
+        //         }
+
+        //     }
+        // }();
+        // prop.inc_status(5);
+        // console.log(prop.get_status());
+         
+
+        // Closure Problems - its the reference of i that is send to the function
+    //     for(var i = 1; i<4;i++){
+    //     setTimeout(function(){
+    //        alert(i);
+    //     },1000);
+    //   }
+
+      // Solving the above problem.
+     for(var i = 1;i < 10; i++ ){
+         setTimeout((function(i){
+             return function(e){
+             console.log(i);
+         }})(i)
+         ,1000);
+     }
         </script>
     </body>
 </html>
